@@ -1,0 +1,88 @@
+<!--
+    Title: Exercise 8.2 - Server-side Communications
+    Arthur: Professor Krasso
+    Date: 07/11/2023
+    Description: app component
+-->
+
+<!-- Add a <mat-toolbar> with one <mat-toolbar-row> -->
+<mat-toolbar class="toolbar">
+
+  <mat-toolbar-row>
+
+<!--
+  Inside the <mat-toolbar-row> and a div for the logo and
+  a div for the applications links.
+-->
+    <div class="logo">
+
+      <!-- Set the height to 80 -->
+      <img src="./assets/In-N-Out-Logo.png" alt="In-N-Out Logo" height="80" />
+
+    </div>
+
+    <div style="width: 80%;">
+
+<!-- Using flex-layout, create a new row and set the alignment to “end start” -->
+      <div fxLayout="row wrap" fxLayoutAlign="end start">
+
+<!-- Add a mat-button with a routerLink for /book-list, /contact, and /about -->
+        <button mat-button routerLink="/book-list">Book List</button>
+
+<!-- Add a link to the top navbar for the Wishlist page and name it “Wish List” -->
+        <button mat-button routerLink="wishlist">Wishlist</button>
+
+        <button mat-button routerLink="/contact">Contact</button>
+        <button mat-button routerLink="/about">About</button>
+
+      </div>
+
+    </div>
+
+
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+
+<!-- Add a line break to separate the toolbar and main container -->
+<br />
+
+
+<!-- Using flex-layout create a new row and set the row to wrap -->
+<div fxLayout="row wrap">
+
+  <!-- Create another div and add the fxFlex directive -->
+  <div fxFlex>
+
+    <!-- Add a <mat-card> and give it a class of main-container -->
+    <mat-card class="main-container">
+
+<!--
+  Add a <mat-card-title> and add a data binding call to
+  a variable named assignment.
+
+  Give a class of blue / YT video.
+-->
+      <mat-card-title class="blue">{{ assignment }}</mat-card-title>
+
+      <!-- Underneath the <mat-card-title> Add two new line breaks -->
+      <br /><br />
+
+      <!-- Add a <mat-card-content> and put the <router-outlet> inside it -->
+      <mat-card-content>
+
+        <router-outlet></router-outlet>
+
+      </mat-card-content>
+
+    </mat-card>
+
+  </div>
+
+</div>
+
+
+
+

@@ -1,0 +1,40 @@
+/**
+    Title: Exercise 8.2 - Server-side Communications
+    Arthur: Professor Krasso
+    Date: 07/11/2023
+    Modified By: Brooks
+    Description: book-list component scss
+*/
+
+/* Add CSS styling for text-decoration: none; */
+.a-link {
+  text-decoration: none;
+}
+
+/* Add CSS styling for hover cursor: pointer; text-decoration: underline */
+.a-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Using CSS grid we are going to create rows of 3 mat-card’s */
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  padding: 25px;
+}
+
+.grid-container mat-list-item {
+  padding: 20px;
+  font-size: 30px;
+}
+
+.grid-container a:hover {
+  text-decoration: underline;
+}
+
+.grid-container a {
+  text-decoration: none;
+  cursor: pointer;
+}

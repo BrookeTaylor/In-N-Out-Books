@@ -1,0 +1,41 @@
+<!--
+    Title: Exercise 8.2 - Server-side Communications
+    Arthur: Professor Krasso
+    Date: 07/11/2023
+    Description: Wishlist create component
+-->
+
+<!--
+
+  Using Flex Layout columns, create a <form> with two mat-form-fields and
+  a button.  Each mat-form-field should include a mat-label and
+  input of type text.
+
+-->
+<form fxLayout="column" class="wishlist-create-form">
+
+  <mat-form-field fxFlex appearance="fill">
+
+    <mat-label>Title</mat-label>
+
+    <!-- Using the “banana in a box” directive assign the
+      wishlistItem properties title and authors to each input field  -->
+    <input type="text" name="title" matInput [(ngModel)]="item.title" />
+
+  </mat-form-field>
+
+
+  <mat-form-field fxFlex appearance="fill">
+
+    <mat-label>Authors</mat-label>
+
+    <!-- Using the “banana in a box” directive assign the
+      wishlistItem properties title and authors to each input field -->
+    <input type="text" name="authors" matInput [(ngModel)]="item.authors" />
+
+  </mat-form-field>
+
+
+  <button mat-button color="primary" (click)="addItem()">Add item</button>
+
+</form>

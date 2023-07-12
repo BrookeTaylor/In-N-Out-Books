@@ -1,0 +1,86 @@
+<!--
+    Title: Exercise 8.2 - Server-side Communications
+    Arthur: Professor Krasso
+    Date: 07/11/2023
+    Description: book-list component
+-->
+
+<!--
+  Add an <ng-container> give it an ngIf statement to check if the
+  books.length === 0.  In the body of the <ng-container> add
+  a <mat-spinner>
+-->
+<ng-container *ngIf="books.length === 0">
+
+  <mat-spinner>
+
+<!--
+  We are basically wanting to display a spinner when our books array has
+  a 0 count.  When the books array has at least one object, show the cards.
+  We are doing this so users are not staring at a blank page while
+  the books are being returned from the Open Library API
+-->
+
+  </mat-spinner>
+
+</ng-container>
+
+
+<!-- Add a new div -->
+<div fxLayout="column wrap">
+
+<!--
+  Add an h2 tag with a color green and name it
+  “Top {books.length} Favorite Books”
+-->
+  <h2 fxFlex class="green">Top {{ books.length }} Favorite Books</h2>
+
+
+  <!-- Add a div and give it the class: grid-container -->
+  <div class="grid-container">
+
+    <!-- Add an ng-container and an *ngFor loop to loop over the books array -->
+    <ng-container *ngFor="let book of books">
+
+      <div class="grid-item">
+
+<!--
+  In the body of the ng-container element create a mat-card,
+  mat-card-title, and mat-card-content
+-->
+        <mat-card>
+
+<!--
+  Give the mat-card-title an href with a (click) directive
+  that calls the showBookDetails function passing-in the book.isbn value.
+
+  Give the anchor tag the value of book.title
+-->
+          <mat-card-title>
+            <a (click)="showBookDetails(book.isbn)">{{ book.title }}</a>
+          </mat-card-title>
+
+
+          <mat-card-content>
+
+<!--
+  In the body of the mat-card-content,
+  create a mat-list with three mat-list-items
+  and map the isbn, pages, and authors to each mat-list-item
+-->
+            <mat-list-item>ISBN: {{ book.isbn }}</mat-list-item>
+            <mat-list-item>Pages: {{ book.numOfPages }}</mat-list-item>
+            <mat-list-item>Authors: {{ book.authors }}</mat-list-item>
+
+          </mat-card-content>
+
+        </mat-card>
+
+      </div>
+
+    </ng-container>
+
+  </div>
+
+
+</div>
