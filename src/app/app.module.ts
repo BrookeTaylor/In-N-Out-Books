@@ -51,39 +51,31 @@ import { FormsModule } from '@angular/forms';
 // import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 
 // Import the HttpClientModule and MatProgressSpinnerModule
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 // import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    AboutComponent,
-    ContactComponent,
-    BookListComponent,
-    BookDetailsDialogComponent,
-    WishlistComponent,
-    WishlistCreateComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatButtonModule,
-    MatListModule,
-
-    MatIconModule,
-    MatTableModule,
-    MatDialogModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    HttpClientModule,
-    MatProgressSpinnerModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        AboutComponent,
+        ContactComponent,
+        BookListComponent,
+        BookDetailsDialogComponent,
+        WishlistComponent,
+        WishlistCreateComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatButtonModule,
+        MatListModule,
+        MatIconModule,
+        MatTableModule,
+        MatDialogModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatProgressSpinnerModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
 
