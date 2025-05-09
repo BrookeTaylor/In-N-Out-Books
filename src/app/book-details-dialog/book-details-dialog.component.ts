@@ -12,7 +12,9 @@
 import { Component, OnInit } from '@angular/core';
 
 // Add an import statement for MAT_DIALOG_DATA and MatDialogRef
-import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+// import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 // Add an import statement for Inject
 import { Inject } from '@angular/core';
@@ -31,11 +33,11 @@ export class BookDetailsDialogComponent implements OnInit {
   book: IBook;
 
   // Add the MatDialogRef and MAT_DIALOG_DATA to the components constructor
-  constructor(private dialogRef: MatDialogRef<BookDetailsDialogComponent>, @Inject(MAT_DIALOG_DATA) data) {
-
-    // In the components constructor map the data.book value to the book variable
+  constructor(
+    public dialogRef: MatDialogRef<BookDetailsDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { book: IBook }
+  ) {
     this.book = data.book;
-
   }
 
   ngOnInit(): void {

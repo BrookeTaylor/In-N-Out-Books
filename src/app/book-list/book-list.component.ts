@@ -20,7 +20,8 @@ import { Observable } from 'rxjs';
 import { BooksService } from '../books.service';
 
 // Add an import statement for the MatDialog
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+// import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 // Add an import statement for the BookDetailsDialogComponent
 import { BookDetailsDialogComponent } from '../book-details-dialog/book-details-dialog.component';

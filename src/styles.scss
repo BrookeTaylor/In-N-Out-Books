@@ -6,8 +6,7 @@
     Description: styles scss
 */
 
-// Add an import statement for the _theme.scss file
-@import './theme';
+@use 'theme'; // no need for the underscore or file extension
 
 html, body {
   height: 100%;
