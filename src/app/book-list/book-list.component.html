@@ -1,8 +1,11 @@
 <!--
     Title: Exercise 8.2 - Server-side Communications
-    Arthur: Professor Krasso
-    Date: 07/11/2023
-    Description: book-list component
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/11/23
+    Revision: 5/14/25
+
+    Description: Book List Component
 -->
 
 <!--
@@ -62,6 +65,8 @@
 
 
           <mat-card-content>
+
+            <mat-list-item><img [src]="book.coverUrl" alt="{{book.title}} cover" /></mat-list-item>
 
 <!--
   In the body of the mat-card-content,

@@ -16,9 +16,10 @@ import { IWishlistItem } from '../wishlist-item.interface';
 
 
 @Component({
-  selector: 'app-wishlist-create',
-  templateUrl: './wishlist-create.component.html',
-  styleUrls: ['./wishlist-create.component.scss']
+    selector: 'app-wishlist-create',
+    templateUrl: './wishlist-create.component.html',
+    styleUrls: ['./wishlist-create.component.scss'],
+    standalone: false
 })
 export class WishlistCreateComponent implements OnInit {
 

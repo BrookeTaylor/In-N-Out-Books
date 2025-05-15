@@ -1,12 +1,11 @@
-/*
-============================================
-; Title: Exercise 8.2 - Server-side Communications
-; Author: Professor Krasso
-; Date: 07/11/2023
-; Modified By: Brooks
-; Description: books service
-============================================
-*/
+/**
+ * Title: Exercise 8.2 - Server-side Communications
+ * Instructor: Professor Krasso
+ * Author: Brooke Taylor
+ * Date: 7/11/23
+ * Revision: 5/9/25
+ * Description: Books Service
+ */
 
 import { Injectable } from '@angular/core';
 
@@ -27,18 +26,17 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 })
 export class BooksService {
 
-  // Add a new variable named isbns of type string array
-  // and fill it with the following values
+
   isbns: string[] = [
-    '0345339681',
-    '0261103571',
-    '9780593099322',
-    '9780261102361',
-    '9780261102378',
-    '9780590302715',
-    '9780316769532',
-    '9780743273565',
-    '9780590405959'
+    '1942788002',
+    '0998296600',
+    '180056418X',
+    '0060198605',
+    '0060556196',
+    '076791404X',
+    '0812967941',
+    '0061122416',
+    '1590302486'
   ]
 
 

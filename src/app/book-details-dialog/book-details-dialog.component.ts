@@ -23,9 +23,10 @@ import { Inject } from '@angular/core';
 import { IBook } from '../book.interface';
 
 @Component({
-  selector: 'app-book-details-dialog',
-  templateUrl: './book-details-dialog.component.html',
-  styleUrls: ['./book-details-dialog.component.scss']
+    selector: 'app-book-details-dialog',
+    templateUrl: './book-details-dialog.component.html',
+    styleUrls: ['./book-details-dialog.component.scss'],
+    standalone: false
 })
 export class BookDetailsDialogComponent implements OnInit {
 

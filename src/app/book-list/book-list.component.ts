@@ -1,12 +1,11 @@
-/*
-============================================
-; Title: Exercise 8.2 - Server-side Communications
-; Author: Professor Krasso
-; Date: 07/11/2023
-; Modified By: Brooks
-; Description: book-list component
-============================================
-*/
+/**
+ * Title: Exercise 8.2 - Server-side Communications
+ * Instructor: Professor Krasso
+ * Author: Brooke Taylor
+ * Date: 7/11/23
+ * Revision: 5/14/25
+ * Description: Book List Component
+ */
 
 import { Component, OnInit } from '@angular/core';
 
@@ -27,9 +26,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { BookDetailsDialogComponent } from '../book-details-dialog/book-details-dialog.component';
 
 @Component({
-  selector: 'app-book-list',
-  templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.scss']
+    selector: 'app-book-list',
+    templateUrl: './book-list.component.html',
+    styleUrls: ['./book-list.component.scss'],
+    standalone: false
 })
 export class BookListComponent implements OnInit {
 
@@ -61,13 +61,22 @@ export class BookListComponent implements OnInit {
             });
           }
 
+          const isbn = res[key].details.isbn_13
+            ? res[key].details.isbn_13[0]
+            : res[key].details.isbn_10 ? res[key].details.isbn_10[0] : '';
+
+          const coverUrl = isbn ? `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg` : '';
+
           this.books.push({
-            isbn: res[key].details.isbn_13 ? res [key].details.isbn_13 : res [key].details.isbn_10,
+            isbn: isbn,
             title: res[key].details.title,
             description: res[key].details.subtitle ? res[key].details.subtitle : 'N/A',
             numOfPages: res[key].details.number_of_pages,
-            authors: authors
+            authors: authors,
+            coverUrl: coverUrl
           });
+
+
 
         }
       }
