@@ -1,41 +1,24 @@
 <!--
     Title: Exercise 8.2 - Server-side Communications
-    Arthur: Professor Krasso
-    Date: 07/11/2023
-    Description: Wishlist create component
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/11/23
+    Revision: 5/15/25
+
+    Description: Wishlist Create Component
 -->
 
-<!--
-
-  Using Flex Layout columns, create a <form> with two mat-form-fields and
-  a button.  Each mat-form-field should include a mat-label and
-  input of type text.
-
--->
-<form fxLayout="column" class="wishlist-create-form">
-
-  <mat-form-field fxFlex appearance="fill">
-
-    <mat-label>Title</mat-label>
-
-    <!-- Using the “banana in a box” directive assign the
-      wishlistItem properties title and authors to each input field  -->
-    <input type="text" name="title" matInput [(ngModel)]="item.title" />
-
+<form fxLayout="row" fxLayoutGap="10px">
+  <mat-form-field fxFlex>
+    <input matInput placeholder="Search for a book..." [(ngModel)]="searchTerm" name="searchTerm" />
   </mat-form-field>
-
-
-  <mat-form-field fxFlex appearance="fill">
-
-    <mat-label>Authors</mat-label>
-
-    <!-- Using the “banana in a box” directive assign the
-      wishlistItem properties title and authors to each input field -->
-    <input type="text" name="authors" matInput [(ngModel)]="item.authors" />
-
-  </mat-form-field>
-
-
-  <button mat-button color="primary" (click)="addItem()">Add item</button>
-
+  <button mat-flat-button color="primary" type="button" (click)="searchBooks()">Search</button>
 </form>
+
+<div *ngIf="results.length > 0" fxLayout="column" fxLayoutGap="10px" style="margin-top: 1rem;">
+  <mat-card *ngFor="let result of results" style="width: 100%;">
+    <mat-card-title>{{ result.title }}</mat-card-title>
+    <mat-card-subtitle>{{ result.authors }}</mat-card-subtitle>
+    <button mat-button color="accent" (click)="addToWishlist(result)">Add to Wishlist</button>
+  </mat-card>
+</div>

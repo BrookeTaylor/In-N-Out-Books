@@ -1,8 +1,11 @@
 <!--
     Title: Exercise 8.2 - Server-side Communications
-    Arthur: Professor Krasso
-    Date: 07/11/2023
-    Description: Wishlist component
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/11/23
+    Revision: 5/15/25
+
+    Description: Wishlist Component
 -->
 
 <div fxLayout="column">
@@ -13,26 +16,26 @@
 -->
   <app-wishlist-create fxFlex (addItemEmitter)="updateItemsHandler($event)"></app-wishlist-create>
 
+  <button mat-button color="warn" (click)="clearWishlist()" *ngIf="items.length">
+  Clear Wishlist
+</button>
+
+
   <br /><br />
 
   <div>
 
-<!--
-  Under the app-wishlist-create component, add a mat-list and using
-  the *ngFor iterate over the items array and map the properties
-  mat-list-item elements
--->
-    <mat-list fxFlex *ngIf="items && items.length > 0">
+<div fxLayout="row wrap" fxLayoutGap="16px" *ngIf="items && items.length > 0">
+  <mat-card *ngFor="let item of items" style="width: 250px;">
+    <mat-card-title>{{ item.title }}</mat-card-title>
+    <mat-card-subtitle>{{ item.authors }}</mat-card-subtitle>
+  </mat-card>
+</div>
 
-      <mat-list-item *ngFor="let item of items">
+<div *ngIf="!items || items.length === 0">
+  <h2 style="text-align: center;">Your wishlist is empty</h2>
+</div>
 
-        <div mat-line>Title: {{ item.title }}</div>
-
-        <div mat-line>Authors: {{ item.authors }}</div>
-
-      </mat-list-item>
-
-    </mat-list>
 
     <div fxFlex *ngIf="!items || items.length === 0">
       <h2 style="text-align: center;">Your wishlist is empty</h2>

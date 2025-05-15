@@ -1,59 +1,44 @@
-/*
-============================================
-; Title: Exercise 8.2 - Server-side Communications
-; Author: Professor Krasso
-; Date: 07/11/2023
-; Modified By: Brooks
-; Description: Wishlist Create component
-============================================
-*/
+/**
+ * Title: Exercise 4.3 – Handling Form Events with Observables
+ * Instructor: Professor Krasso
+ * Author: Brooke Taylor
+ * Date: 7/11/23
+ * Revision: 5/15/25
+ * Description: Wishlist Create Component
+ */
 
-// Add Output and EventEmitter to the “Component, OnInit” statement
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
-// Add an import statement for the IWishlistItem
 import { IWishlistItem } from '../wishlist-item.interface';
-
+import { OpenLibraryService } from '../services/open-library.service';
 
 @Component({
-    selector: 'app-wishlist-create',
-    templateUrl: './wishlist-create.component.html',
-    styleUrls: ['./wishlist-create.component.scss'],
-    standalone: false
+  selector: 'app-wishlist-create',
+  templateUrl: './wishlist-create.component.html',
+  styleUrls: ['./wishlist-create.component.scss'],
+  standalone: false
 })
 export class WishlistCreateComponent implements OnInit {
-
-  // Add an output statement named addItemEmitter of type EventEmitter<IWishlistItem>
   @Output() addItemEmitter = new EventEmitter<IWishlistItem>();
 
-  // Add a variable named item of type IWishlistItem
-  item: IWishlistItem;
+  searchTerm = '';
+  results: IWishlistItem[] = [];
 
-  constructor() {
+  constructor(private openLibraryService: OpenLibraryService) {}
 
-    // In the component’s constructor create a new instance of
-    // the IWishlistItem object
-    this.item = {} as IWishlistItem;
+  ngOnInit(): void {}
 
-  }
+  searchBooks() {
+    if (!this.searchTerm.trim()) return;
 
-  ngOnInit(): void {
-  }
-
-
-  // Add a new function called “addItem()”
-  addItem() {
-
-    // In the body of the addItem function create a new object literal
-    // of type IWishlistItem and call the addItemEmitter to emit the object
-    this.addItemEmitter.emit({
-      title: this.item.title,
-      authors: this.item.authors
+    this.openLibraryService.searchBooks(this.searchTerm).subscribe((data) => {
+      this.results = data.map(book => ({
+        title: book.title,
+        authors: book.author_name?.join(', ') || 'Unknown'
+      }));
     });
-
-    // Next, set the item object to an empty object
-    this.item = {} as IWishlistItem;
-
   }
 
+  addToWishlist(item: IWishlistItem) {
+    this.addItemEmitter.emit(item);
+  }
 }

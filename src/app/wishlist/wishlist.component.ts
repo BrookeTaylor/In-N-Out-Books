@@ -1,42 +1,47 @@
-/*
-============================================
-; Title: Exercise 8.2 - Server-side Communications
-; Author: Professor Krasso
-; Date: 07/11/2023
-; Modified By: Brooks
-; Description: Wishlist Component
-============================================
-*/
+/**
+ * Title: Exercise 8.2 – Server-side Communications
+ * Instructor: Professor Krasso
+ * Author: Brooke Taylor
+ * Date: 7/11/23
+ * Revision: 5/15/25
+ * Description: Wishlist Component
+ */
 
 import { Component, OnInit } from '@angular/core';
-
-// Add an import statement for the IWishlistItem interface
 import { IWishlistItem } from '../wishlist-item.interface';
 
 @Component({
-    selector: 'app-wishlist',
-    templateUrl: './wishlist.component.html',
-    styleUrls: ['./wishlist.component.scss'],
-    standalone: false
+  selector: 'app-wishlist',
+  templateUrl: './wishlist.component.html',
+  styleUrls: ['./wishlist.component.scss'],
+  standalone: false
 })
 export class WishlistComponent implements OnInit {
-
-  // Add a new variable named items of type Array<IWishlistItem> and
-  // assign it to an empty array
-  items: Array<IWishlistItem> = [];
-
-  constructor() { }
+  items: IWishlistItem[] = [];
 
   ngOnInit(): void {
+    const stored = localStorage.getItem('wishlist');
+    if (stored) {
+      this.items = JSON.parse(stored);
+    }
   }
 
-  // Add a new function named updateItemsHandler(item: IWishlistItem)
-  updateItemsHandler(item: IWishlistItem) {
+  updateItemsHandler(item: IWishlistItem | IWishlistItem[]): void {
+    if (Array.isArray(item)) {
+      this.items.push(...item);
+    } else {
+      this.items.push(item);
+    }
 
-    // In the body of the updateItemsHandler add the parameter item
-    // to the items array
-    this.items.push(item);
-
+    this.saveToLocalStorage();
   }
 
+  clearWishlist(): void {
+    this.items = [];
+    localStorage.removeItem('wishlist');
+  }
+
+  private saveToLocalStorage(): void {
+    localStorage.setItem('wishlist', JSON.stringify(this.items));
+  }
 }

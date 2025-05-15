@@ -1,12 +1,12 @@
-/*
-============================================
-; Title: Exercise 8.2 - Server-side Communications
-; Author: Professor Krasso
-; Date: 07/11/2023
-; Modified By: Brooks
-; Description: app module
-============================================
-*/
+/**
+ * Title: Exercise 8.2 – Server-side Communications
+ * Instructor: Professor Krasso
+ * Author: Brooke Taylor
+ * Date: 7/11/23
+ * Revision: 5/15/25
+ * Description: App Module
+ */
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -30,29 +30,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // Add import statements
 import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
-// import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
-// import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
-// import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
-
-// Add an import statement for MatTableModule
-// import { MatLegacyTableModule as MatTableModule } from '@angular/material/legacy-table';
 import { BookDetailsDialogComponent } from './book-details-dialog/book-details-dialog.component';
-
-// Add an import statement for the MatDialogModule
-// import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { WishlistCreateComponent } from './wishlist-create/wishlist-create.component';
-
-// add import statements for FormsModule, MatFormFieldModule, and MatInputModule
 import { FormsModule } from '@angular/forms';
-// import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-// import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
-
-// Import the HttpClientModule and MatProgressSpinnerModule
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-// import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
 
 @NgModule({ declarations: [
         AppComponent,
