@@ -12,7 +12,7 @@
   <mat-form-field fxFlex>
     <input matInput placeholder="Search for a book..." [(ngModel)]="searchTerm" name="searchTerm" />
   </mat-form-field>
-  <button mat-flat-button color="primary" type="button" (click)="searchBooks()">Search</button>
+  <button mat-flat-button color="primary" type="button" (click)="searchBooks()" [disabled]="loading">Search</button>
 </form>
 
 <div *ngIf="results.length > 0" fxLayout="column" fxLayoutGap="10px" style="margin-top: 1rem;">

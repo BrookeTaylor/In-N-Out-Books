@@ -8,39 +8,33 @@
     Description: Wishlist Component
 -->
 
-<div fxLayout="column">
+<div fxLayout="column" fxLayoutGap="16px">
 
-<!--
-  Update the <app-wishlist-create> component by adding the “addItemEmitter”
-  as an event and passing-in the updateItemsHandler function
--->
-  <app-wishlist-create fxFlex (addItemEmitter)="updateItemsHandler($event)"></app-wishlist-create>
+  <button mat-raised-button color="primary" (click)="openSidebar = true">
+    + Add Book
+  </button>
 
   <button mat-button color="warn" (click)="clearWishlist()" *ngIf="items.length">
-  Clear Wishlist
-</button>
+    Clear Wishlist
+  </button>
 
-
-  <br /><br />
-
-  <div>
-
-<div fxLayout="row wrap" fxLayoutGap="16px" *ngIf="items && items.length > 0">
-  <mat-card *ngFor="let item of items" style="width: 250px;">
-    <mat-card-title>{{ item.title }}</mat-card-title>
-    <mat-card-subtitle>{{ item.authors }}</mat-card-subtitle>
-  </mat-card>
-</div>
-
-<div *ngIf="!items || items.length === 0">
-  <h2 style="text-align: center;">Your wishlist is empty</h2>
-</div>
-
-
-    <div fxFlex *ngIf="!items || items.length === 0">
-      <h2 style="text-align: center;">Your wishlist is empty</h2>
-    </div>
-
+  <div *ngIf="items && items.length > 0" fxLayout="row wrap" fxLayoutGap="16px">
+    <mat-card *ngFor="let item of items" style="width: 250px;">
+      <mat-card-title>{{ item.title }}</mat-card-title>
+      <mat-card-subtitle>{{ item.authors }}</mat-card-subtitle>
+    </mat-card>
   </div>
 
-</div>
+  <div fxFlex *ngIf="!items || items.length === 0">
+    <h2 style="text-align: center;">Your wishlist is empty</h2>
+  </div>
+
+
+<div class="overlay" *ngIf="openSidebar" [@slideInOut]>
+
+  <button class="close-btn" (click)="openSidebar = false">
+    ✕ Close
+  </button>
+
+<app-wishlist-create (addItemEmitter)="updateItemsHandler($event)"></app-wishlist-create>
+

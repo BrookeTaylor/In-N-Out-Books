@@ -1,9 +1,11 @@
 /**
     Title: Exercise 8.2 - Server-side Communications
-    Arthur: Professor Krasso
-    Date: 07/11/2023
-    Modified By: Brooks
-    Description: styles scss
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/11/23
+    Revision: 5/15/25
+
+    Description: Styles
 */
 
 @use 'theme';
@@ -15,6 +17,7 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url(assets/background.png);
 }
 
 .blue {

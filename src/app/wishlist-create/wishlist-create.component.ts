@@ -27,6 +27,8 @@ export class WishlistCreateComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  loading = false;
+
   searchBooks() {
     if (!this.searchTerm.trim()) return;
 
