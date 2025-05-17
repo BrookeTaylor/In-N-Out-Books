@@ -36,7 +36,7 @@
   Add an h2 tag with a color green and name it
   “Top {books.length} Favorite Books”
 -->
-  <h2 fxFlex class="green">Top {{ books.length }} Favorite Books</h2>
+  <h2 fxFlex class="green">Brooke's Bookshelf, Top {{ books.length }}</h2>
 
 
   <!-- Add a div and give it the class: grid-container -->
@@ -68,13 +68,6 @@
 
             <mat-list-item><img [src]="book.coverUrl" alt="{{book.title}} cover" /></mat-list-item>
 
-<!--
-  In the body of the mat-card-content,
-  create a mat-list with three mat-list-items
-  and map the isbn, pages, and authors to each mat-list-item
--->
-            <mat-list-item>ISBN: {{ book.isbn }}</mat-list-item>
-            <mat-list-item>Pages: {{ book.numOfPages }}</mat-list-item>
             <mat-list-item>Authors: {{ book.authors }}</mat-list-item>
 
           </mat-card-content>

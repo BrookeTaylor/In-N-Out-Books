@@ -1,0 +1,23 @@
+/**
+    Title: Exercise 8.2 - Server-side Communications
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/11/23
+    Revision: 5/17/25
+
+    Description: Book Details Dialog Styles
+*/
+
+@use '../../theme' as *;
+
+.copy-icon {
+  width: 15px;
+  height: 17px;
+}
+
+
+mat-card-title {
+  color: #2196F3;
+}
+
+

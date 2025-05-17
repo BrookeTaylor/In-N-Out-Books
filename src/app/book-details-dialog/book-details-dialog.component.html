@@ -7,34 +7,25 @@
     Description: Book Details Dialog Component
 -->
 
-<!-- Add mat-card with a title, content and actions -->
 <mat-card>
 
-<!-- The title should display the book’s title and set the font color to blue -->
-  <mat-card-title class="blue">
+  <mat-card-title>
     {{ book.title }}
   </mat-card-title>
 
-
-<!--
-  For the mat-card-content add an Flex column layout and use paragraph tags
-  to output each value of the book object
--->
   <mat-card-content>
-    <div fxLayout="column">
-      <p>ISBN: {{ book.isbn }}</p>
-      <!--
-      <p>Title: {{ book.title }}</p>
-      <p>Number of Pages: {{ book.numOfPages }}</p>
-      <p>Author(s): {{ book.authors }}</p>
-      -->
-    </div>
+    <p *ngIf="copied" class="copied-message">Copied!</p>
+
+    <p>
+      ISBN:
+        <span (click)="copyISBN()" class="copy-isbn">
+          {{ book.isbn }}
+
+          <img src="assets/copy.png" alt="Copy" class="copy-icon">
+        </span>
+    </p>
   </mat-card-content>
 
-<!--
-  For the mat-card-actions, add a single mat-raised button, set the color
-  to accent, and add the matDialogClose directive to ‘confirm’
--->
   <mat-card-actions>
     <button mat-raised-button color="accent" matDialogClose="confirm">OK</button>
   </mat-card-actions>
