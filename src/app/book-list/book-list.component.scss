@@ -3,39 +3,74 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/11/2023
+    Revision: 5/23/25
 
     Description: Book List Component Styles
 */
 
-/* Add CSS styling for text-decoration: none; */
-.a-link {
-  text-decoration: none;
+mat-card-title {
+  padding: 1rem;
 }
 
-/* Add CSS styling for hover cursor: pointer; text-decoration: underline */
-.a-link:hover {
-  text-decoration: underline;
-  cursor: pointer;
+mat-card {
+  color: white;
 }
 
-/* Using CSS grid we are going to create rows of 3 mat-card’s */
-.grid-container {
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-content {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.grid-item {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.book-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.book-cover img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.flex-container {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-gap: 20px;
-  padding: 25px;
+  grid-gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
-.grid-container mat-list-item {
-  padding: 20px;
-  font-size: 30px;
+
+.flex-container {
+  grid-template-columns: repeat(1, 1fr);
 }
 
-.grid-container a:hover {
-  text-decoration: underline;
+
+@media (min-width: 768px) {
+  .flex-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.grid-container a {
-  text-decoration: none;
-  cursor: pointer;
+
+@media (min-width: 992px) {
+  .flex-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

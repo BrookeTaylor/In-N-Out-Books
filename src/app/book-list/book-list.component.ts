@@ -3,7 +3,7 @@
  * Instructor: Professor Krasso
  * Author: Brooke Taylor
  * Date: 7/11/23
- * Revision: 5/14/25
+ * Revision: 5/23/25
  * Description: Book List Component
  */
 
@@ -126,5 +126,17 @@ export class BookListComponent implements OnInit {
 
 
   }
+
+
+  onImageLoad(event: Event) {
+    const img = event.target as HTMLImageElement;
+
+    // If the image is too small or default Open Library placeholder
+    if (img.naturalWidth <= 50 || img.naturalHeight <= 50) {
+      img.src = '/assets/placeholder.png';
+    }
+  }
+
+
 
 }

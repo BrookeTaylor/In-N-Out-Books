@@ -3,74 +3,43 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/11/23
-    Revision: 5/14/25
+    Revision: 5/23/25
 
     Description: Book List Component
 -->
 
-<!--
-  Add an <ng-container> give it an ngIf statement to check if the
-  books.length === 0.  In the body of the <ng-container> add
-  a <mat-spinner>
--->
-<ng-container *ngIf="books.length === 0">
+<div class="main-scroll-container">
+  <ng-container *ngIf="books.length === 0">
+    <mat-spinner></mat-spinner>
+  </ng-container>
 
-  <mat-spinner>
+  <h2 class="green">Brooke's Bookshelf, Top {{ books.length }}</h2>
 
-<!--
-  We are basically wanting to display a spinner when our books array has
-  a 0 count.  When the books array has at least one object, show the cards.
-  We are doing this so users are not staring at a blank page while
-  the books are being returned from the Open Library API
--->
+  <div class="flex-container">
 
-  </mat-spinner>
-
-</ng-container>
-
-
-<!-- Add a new div -->
-<div fxLayout="column wrap">
-
-<!--
-  Add an h2 tag with a color green and name it
-  “Top {books.length} Favorite Books”
--->
-  <h2 fxFlex class="green">Brooke's Bookshelf, Top {{ books.length }}</h2>
-
-
-  <!-- Add a div and give it the class: grid-container -->
-  <div class="grid-container">
-
-    <!-- Add an ng-container and an *ngFor loop to loop over the books array -->
     <ng-container *ngFor="let book of books">
 
       <div class="grid-item">
 
-<!--
-  In the body of the ng-container element create a mat-card,
-  mat-card-title, and mat-card-content
--->
         <mat-card>
 
-<!--
-  Give the mat-card-title an href with a (click) directive
-  that calls the showBookDetails function passing-in the book.isbn value.
+            <mat-card-title>
+              <a (click)="showBookDetails(book.isbn)">{{ book.title }}</a>
+            </mat-card-title>
 
-  Give the anchor tag the value of book.title
--->
-          <mat-card-title>
-            <a (click)="showBookDetails(book.isbn)">{{ book.title }}</a>
-          </mat-card-title>
+            <mat-card-content>
 
+              <div class="book-cover">
+                <img
+                  [src]="book.coverUrl"
+                  alt="{{ book.title }} cover"
+                  (load)="onImageLoad($event)"
+                />
+              </div>
 
-          <mat-card-content>
+              <mat-list-item>Authors: <span class="blue">{{ book.authors }}</span></mat-list-item>
 
-            <mat-list-item><img [src]="book.coverUrl" alt="{{book.title}} cover" /></mat-list-item>
-
-            <mat-list-item>Authors: {{ book.authors }}</mat-list-item>
-
-          </mat-card-content>
+            </mat-card-content>
 
         </mat-card>
 
@@ -80,5 +49,5 @@
 
   </div>
 
-
 </div>
+

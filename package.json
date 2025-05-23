@@ -7,8 +7,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build": "ng build --configuration=production --base-href=/in-n-out-books/",
-    "deploy": "npm run build && npx angular-cli-ghpages -d dist/in-n-out-books"
+    "build": "ng build --configuration=production --base-href=/In-N-Out-Books/",
+    "deploy": "npm run build && npx angular-cli-ghpages -d dist/in-n-out-books/browser"
   },
   "private": true,
   "dependencies": {

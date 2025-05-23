@@ -3,22 +3,34 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/11/23
-    Revision: 5/15/25
+    Revision: 5/23/25
 
     Description: Styles
 */
 
 @use 'theme';
 
+
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url('assets/background.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden; /* Prevent body scrolling */
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-image: url(assets/background.png);
+.main-scroll-container {
+  height: calc(100vh - 64px); /* Full viewport height */
+  overflow-y: auto; /* Only this scrolls */
+  padding: 1rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
 }
+
 
 .blue {
   color: #2196F3;
@@ -28,27 +40,3 @@ body {
   color: #66BB6A;
 }
 
-.attribution-link {
-  text-decoration: none;
-  color: white;
-}
-
-.attribution-link:hover {
-  text-decoration: underline;
-}
-
-.card-title-icon {
-  text-align: center;
-}
-
-.card-title-icon, .mat-icon {
-  font-size: 72px;
-}
-
-.align-center {
-  text-align: center;
-}
-
-p {
-  color: #b0b0b0;
-}
