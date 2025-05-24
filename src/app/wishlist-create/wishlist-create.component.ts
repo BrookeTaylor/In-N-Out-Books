@@ -35,7 +35,8 @@ export class WishlistCreateComponent implements OnInit {
     this.openLibraryService.searchBooks(this.searchTerm).subscribe((data) => {
       this.results = data.map(book => ({
         title: book.title,
-        authors: book.author_name?.join(', ') || 'Unknown'
+        authors: book.author_name?.join(', ') || 'Unknown',
+        coverUrl: book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` : 'assets/placeholder.png'
       }));
     });
   }
@@ -43,4 +44,9 @@ export class WishlistCreateComponent implements OnInit {
   addToWishlist(item: IWishlistItem) {
     this.addItemEmitter.emit(item);
   }
+
+  onImageError(event: Event): void {
+  (event.target as HTMLImageElement).src = 'assets/placeholder.png';
+}
+
 }

@@ -16,9 +16,26 @@
 </form>
 
 <div *ngIf="results.length > 0" fxLayout="column" fxLayoutGap="10px" style="margin-top: 1rem;">
+
+  <!--
   <mat-card *ngFor="let result of results" style="width: 100%;">
     <mat-card-title>{{ result.title }}</mat-card-title>
     <mat-card-subtitle>{{ result.authors }}</mat-card-subtitle>
     <button mat-button color="accent" (click)="addToWishlist(result)">Add to Wishlist</button>
   </mat-card>
+  -->
+
+  <mat-card *ngFor="let result of results" style="width: 100%;">
+  <img
+    mat-card-image
+    [src]="result.coverUrl"
+    alt="{{ result.title }} cover"
+    (error)="onImageError($event)"
+    style="max-height: 350px; object-fit: cover;"
+  />
+  <mat-card-title>{{ result.title }}</mat-card-title>
+  <mat-card-subtitle>{{ result.authors }}</mat-card-subtitle>
+  <button mat-button color="accent" (click)="addToWishlist(result)">Add to Wishlist</button>
+</mat-card>
+
 </div>

@@ -3,12 +3,12 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/11/23
-    Revision: 5/15/25
+    Revision: 5/23/25
 
     Description: Wishlist Component
 -->
 
-<div fxLayout="column" fxLayoutGap="16px">
+<div class="main-scroll-container">
 
   <button mat-raised-button color="primary" (click)="openSidebar = true">
     + Add Book
@@ -18,23 +18,36 @@
     Clear Wishlist
   </button>
 
-  <div *ngIf="items && items.length > 0" fxLayout="row wrap" fxLayoutGap="16px">
-    <mat-card *ngFor="let item of items" style="width: 250px;">
-      <mat-card-title>{{ item.title }}</mat-card-title>
-      <mat-card-subtitle>{{ item.authors }}</mat-card-subtitle>
-    </mat-card>
+  <div *ngIf="items && items.length > 0" class="flex-container">
+    <ng-container *ngFor="let item of items">
+      <div class="grid-item">
+        <mat-card>
+          <mat-card-title>{{ item.title }}</mat-card-title>
+          <mat-card-content>
+            <div class="book-cover">
+              <img
+                [src]="item.coverUrl || 'assets/placeholder.png'"
+                alt="{{ item.title }} cover"
+                (error)="onImageError($event)"
+              />
+            </div>
+            <mat-list-item>Authors: <span class="blue">{{ item.authors }}</span></mat-list-item>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-container>
   </div>
 
   <div fxFlex *ngIf="!items || items.length === 0">
     <h2 style="text-align: center;">Your wishlist is empty</h2>
   </div>
 
+</div>
 
+<!-- Sidebar stays outside -->
 <div class="overlay" *ngIf="openSidebar" [@slideInOut]>
-
   <button class="close-btn" (click)="openSidebar = false">
     ✕ Close
   </button>
-
-<app-wishlist-create (addItemEmitter)="updateItemsHandler($event)"></app-wishlist-create>
-
+  <app-wishlist-create (addItemEmitter)="updateItemsHandler($event)"></app-wishlist-create>
+</div>

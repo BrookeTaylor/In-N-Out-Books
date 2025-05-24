@@ -66,4 +66,9 @@ export class WishlistComponent implements OnInit {
   private saveToLocalStorage(): void {
     localStorage.setItem('wishlist', JSON.stringify(this.items));
   }
+
+  onImageError(event: Event): void {
+  (event.target as HTMLImageElement).src = 'assets/placeholder.png';
+}
+
 }
