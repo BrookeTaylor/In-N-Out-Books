@@ -1,0 +1,29 @@
+/**
+    Title: Contact Us Styles
+    Author: Brooke Taylor
+    Revision: 5/26/25
+
+    Description: Contact Us Styles
+*/
+
+.container {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+mat-card {
+  color: white;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+figure img {
+  max-width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}

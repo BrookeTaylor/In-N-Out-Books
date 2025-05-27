@@ -3,7 +3,26 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/11/2023
-    Revision: 5/23/25
+    Revision: 5/26/25
 
     Description: App Component Styles
 */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}

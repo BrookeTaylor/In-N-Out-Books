@@ -3,82 +3,66 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/11/23
-    Revision: 5/15/25
+    Revision: 5/26/25
 
     Description: Contact Component
 -->
 
-<div fxLayout="row wrap">
+<div class="container">
 
-<!--
-  Update the HTML in the contact.component.html to tell users how they
-  may contact the selected author
--->
+  <h2 class="blue">Contact Us</h2>
 
-  <div fxFlex>
+  <div class="flex-container">
 
-    <mat-card class="mat-elevation-z0">
+    <div class="flex-item">
 
-      <mat-card-title class="card-title-icon">
+      <mat-card>
 
-        <mat-icon color="primary">navigation</mat-icon>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3116.2687477027957!2d-90.31825762519743!3d38.64270046169407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8cab77a0e0c97%3A0x6f84e57ffc885135!2s6800%20Wydown%20Blvd%2C%20St.%20Louis%2C%20MO%2063105!5e0!3m2!1sen!2sus!4v1748311367797!5m2!1sen!2sus" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-      </mat-card-title>
+        <div class="addy">
 
-        <br />
+          <mat-icon color="primary">navigation</mat-icon>
 
-      <mat-card-content class="align-center">
+          <address>
+            6800 Wydown Blvd<br>
+            St. Louis, MO 63105
+          </address>
 
-            <img src="./assets/library.jpg" alt="Library" />
+        </div>
 
+      </mat-card>
 
-        <p>
-          6800 Wydown Blvd
-          <br>
-          St. Louis, MO 63105
-        </p>
+    </div>
 
-      </mat-card-content>
+    <div class="flex-item">
 
-    </mat-card>
+      <mat-card>
 
-  </div>
+        <figure>
+          <img src="./assets/library.jpg" alt="Library" />
+        </figure>
 
+        <div class="phone">
+           <mat-icon color="primary">phone</mat-icon>
+           <a href="tel:314-123-4567">(314)123-4567</a>
+        </div>
 
-  <div fxFlex>
-    <mat-card class="mat-elevation-z0">
+        <div class="email">
+          <mat-icon>mail</mat-icon>
+          <a href="mailto:info@in-n-out_books.com">info&#64;in-n-out_books.com</a>
+        </div>
 
-      <mat-card-title class="card-title-icon">
-        <mat-icon color="primary">phone</mat-icon>
-      </mat-card-title>
-
-        <br />
-
-      <mat-card-content class="align-center">
-        <p>
-          Direct: (314)123-4567
-        </p>
-        <p>
-          Email: info&#64;in-n-out_books.com
-        </p>
-                  <h4>Library Hours</h4>
-        <p>
-
-          Monday - Friday: 9am - 5pm
-          <br>
+        <div class="hours">
+          <h3>Library Hours</h3>
+          Monday - Friday: 9am - 5pm<br>
           Saturday - Sunday: Closed
-        </p>
-      </mat-card-content>
+        </div>
 
-    </mat-card>
+      </mat-card>
+
+    </div>
+
   </div>
 
-</div>
-
-<br /><br /><br /><br />
-
-<div fxLayout="column">
-  <p style="text-align: center;">
-    Thanks for your interest in Cesar's Way and all things animals!
-  </p>
 </div>

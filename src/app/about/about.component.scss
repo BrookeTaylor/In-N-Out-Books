@@ -1,0 +1,44 @@
+/**
+    Title: About Styles
+    Author: Brooke Taylor
+    Revision: 5/23/25
+
+    Description: About Styles
+*/
+
+
+
+.container {
+  color: white;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+figure img {
+  max-width: 100%;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-item-right {
+  padding: 1rem;
+}
+
+@media (min-width: 488px) {
+  mat-card {
+    flex-direction: row;
+  }
+
+  .flex-item-right {
+    flex: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 1rem;
+  }
+
+
+}
+

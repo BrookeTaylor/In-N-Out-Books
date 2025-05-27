@@ -3,7 +3,7 @@
  * Instructor: Professor Krasso
  * Author: Brooke Taylor
  * Date: 7/11/23
- * Revision: 5/15/25
+ * Revision: 5/26/25
  * Description: App Module
  */
 
@@ -25,6 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 
 
@@ -59,6 +61,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
         FormsModule,
         MatFormFieldModule,
         MatInputModule,
+        MatMenuModule,
         MatProgressSpinnerModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
 

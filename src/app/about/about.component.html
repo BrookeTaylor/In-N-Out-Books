@@ -3,55 +3,40 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/11/23
-    Revision: 5/17/25
+    Revision: 5/23/25
 
     Description: About Component
 -->
 
-<!-- Using flex-layout create a new row div and set the row to wrap -->
-<div fxLayout="row wrap">
+<div class="container">
 
-<!--
-  Inside the first row div add two more fxFlex divs
-  (we are going to display the content in two columns: image and description)
--->
-  <div fxFlex>
+  <h1 class="blue">About</h1>
 
-    <div fxLayout="column">
+  <mat-card>
 
-      <div>
+    <div class="flex-item-left">
+      <figure>
         <img src="./assets/reception.png" alt="Library Reception" />
-      </div>
+      </figure>
+    </div>
 
-<!-- Make sure the image is royalty free and include the source as a caption. -->
+    <div class="flex-item-right">
 
-      <div>
-        <em>Image created by ChatGPT</em>
-      </div>
+      <p>This project was originally developed during a Web 425 Angular course as a hands-on introduction to Angular’s component architecture, service-based data handling, and client-side routing. The first version featured a basic display of static book data in a card layout.</p>
+
+      Now updated to the latest version of Angular, this app includes:
+
+      <ul>
+        <li>A refreshed selection of books with updated details</li>
+        <li>An improved user interface with enhanced styling and responsiveness</li>
+        <li>A reimagined theme to match a more polished and immersive user experience</li>
+      </ul>
+
+      <p>The goal of this app was to demonstrate dynamic UI rendering, modular structure, and scalable design patterns — all with a touch of personality. Whether you’re browsing, dreaming, or just testing features, In-N-Out Books invites you into a space where reading, design, and code meet.</p>
+
 
     </div>
 
-  </div>
-
-
-  <div fxFlex>
-
-    <h1 class="blue">About</h1>
-
-<p>This project was originally developed during a Web 425 Angular course as a hands-on introduction to Angular’s component architecture, service-based data handling, and client-side routing. The first version featured a basic display of static book data in a card layout.</p>
-
-Now updated to the latest version of Angular, this app includes:
-<ul>
-  <li>A refreshed selection of books with updated details</li>
-  <li>An improved user interface with enhanced styling and responsiveness</li>
-  <li>A reimagined theme to match a more polished and immersive user experience</li>
-</ul>
-
-<p>The goal of this app was to demonstrate dynamic UI rendering, modular structure, and scalable design patterns — all with a touch of personality. Whether you’re browsing, dreaming, or just testing features, In-N-Out Books invites you into a space where reading, design, and code meet.</p>
-
-  </div>
-
-
-
+  </mat-card>
 
 </div>
