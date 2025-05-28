@@ -3,39 +3,71 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/11/23
-    Revision: 5/15/25
+    Revision: 5/27/25
 
     Description: Wishlist Create Component
 -->
 
-    <figure>
-      <img src="assets/open-library-logo.png" alt="Open Library Logo" />
-    </figure>
+<div class="container">
 
-<form fxLayout="row" fxLayoutGap="10px">
-  <mat-form-field fxFlex>
-    <input matInput placeholder="Search for a book..." [(ngModel)]="searchTerm" name="searchTerm" />
-  </mat-form-field>
-  <button mat-flat-button color="primary" type="button" (click)="searchBooks()" [disabled]="loading">Search</button>
-</form>
+  <div class="poweredBy">
 
-<div *ngIf="results.length > 0" fxLayout="column" fxLayoutGap="10px" style="margin-top: 1rem;">
+    <div>Powered by </div>
+
+    <img src="assets/open-library-logo.png" alt="Open Library Logo" />
+
+  </div><!-- /poweredBy -->
+
+  <h2>Search Books</h2>
+
+<div class="custom-search">
+  <input
+    type="text"
+    placeholder="Search"
+    [(ngModel)]="searchTerm"
+    name="searchTerm"
+    (keyup.enter)="searchBooks()"
+  />
+  <button (click)="searchBooks()" [disabled]="loading" aria-label="Search">
+    <span class="material-icons">search</span>
+  </button>
+</div>
 
 
-  <mat-card *ngFor="let result of results" style="width: 100%;">
+
+  <div *ngIf="results.length > 0" fxLayout="column" fxLayoutGap="10px" style="margin-top: 1rem;">
 
 
 
+    <mat-card *ngFor="let result of results" style="width: 100%;" class="book-card">
+  <div class="book-card-content">
     <img
-      mat-card-image
       [src]="result.coverUrl"
       alt="{{ result.title }} cover"
       (error)="onImageError($event)"
-      style="max-height: 350px; object-fit: cover;"
+      class="book-thumbnail"
     />
-  <mat-card-title>{{ result.title }}</mat-card-title>
-  <mat-card-subtitle>{{ result.authors }}</mat-card-subtitle>
-  <button mat-button color="accent" (click)="addToWishlist(result)">Add to Wishlist</button>
+    <div class="book-info">
+      <h3>{{ result.title }}</h3>
+      <p>by {{ result.authors }}</p>
+      <button mat-flat-button color="primary" (click)="addToWishlist(result)">
+        Add to Wishlist
+      </button>
+    </div>
+  </div>
 </mat-card>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
 
 </div>

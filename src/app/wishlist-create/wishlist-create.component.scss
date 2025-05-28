@@ -3,16 +3,108 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/11/23
-    Revision: 5/15/25
+    Revision: 5/27/25
 
     Description: Wishlist Create Form Styles
 */
 
-/* Adding styles per YouTube video */
-.wishlist-create-form {
-  width: 60%;
+.container {
+  background-color: white;
+  border: 2px solid #bfbba5;
 }
 
-figure img {
-  max-width: 100%;
+.poweredBy img {
+  width: 200px;
+}
+
+.poweredBy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+mat-icon {
+  color: #8a7f6f;
+}
+
+
+
+.custom-search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #E1DDC6;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 300px;
+  margin: 1rem auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.custom-search input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  background: transparent;
+  color: #333;
+}
+
+.custom-search button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8a7f6f;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.custom-search .material-icons {
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+.book-card {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+}
+
+.book-card-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.book-thumbnail {
+  width: 40px;
+  height: 62px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.book-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.book-info p {
+  margin: 0.25rem 0;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.book-info button {
+  margin-top: 0.5rem;
 }
